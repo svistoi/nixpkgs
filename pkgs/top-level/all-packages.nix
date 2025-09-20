@@ -8104,10 +8104,14 @@ with pkgs;
       zfs_unstable = callPackage ../os-specific/linux/zfs/unstable.nix {
         configFile = "user";
       };
+      zfs_anyraid = callPackage ../os-specific/linux/zfs/anyraid.nix {
+        configFile = "user";
+      };
     })
     zfs_2_3
     zfs_2_4
     zfs_unstable
+    zfs_anyraid
     ;
   zfs = zfs_2_4;
 
