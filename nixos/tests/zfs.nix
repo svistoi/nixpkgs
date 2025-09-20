@@ -223,12 +223,16 @@ in
     kernelPackages = pkgs.linuxPackages;
   };
 
+  anyraid = makeZfsTest {
+    zfsPackage = pkgs.zfs_anyraid;
+    kernelPackages = pkgs.linuxPackages;
+  };
+
   installerBoot =
     (import ./installer.nix {
       inherit system;
     }).separateBootZfs;
 
-  installer =
     (import ./installer.nix {
       inherit system;
     }).zfsroot;

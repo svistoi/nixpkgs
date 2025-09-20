@@ -47,6 +47,8 @@ let
       kernelModuleAttribute,
       extraLongDescription ? "",
       extraPatches ? [ ],
+      repo ? "zfs",
+      owner ? "openzfs",
       rev ? "zfs-${version}",
       kernelMinSupportedMajorMinor,
       kernelMaxSupportedMajorMinor,
@@ -94,9 +96,12 @@ let
       inherit version;
 
       src = fetchFromGitHub {
-        owner = "openzfs";
-        repo = "zfs";
-        inherit rev hash;
+        inherit
+          repo
+          owner
+          rev
+          hash
+          ;
       };
 
       patches = extraPatches;
@@ -148,9 +153,14 @@ let
           substituteInPlace ./config/zfs-build.m4 \
             --replace-fail "bashcompletiondir=/etc/bash_completion.d" \
               "bashcompletiondir=$out/share/bash-completion/completions"
-        ''
-        + lib.optionalString (lib.versionOlder version "2.4.0") ''
-          substituteInPlace ./cmd/arc_summary --replace-fail "/sbin/modinfo" "modinfo"
+
+          if [ -f ./cmd/arc_summary ]; then
+            substituteInPlace ./cmd/arc_summary --replace-fail "/sbin/modinfo" "modinfo"
+          fi
+
+          if [ -f ./cmd/zacsummary ]; then
+            substituteInPlace ./cmd/zarcsummary --replace-fail "/sbin/modinfo" "modinfo"
+          fi
         ''
         + lib.optionalString (lib.versionAtLeast version "2.4.0") ''
           substituteInPlace ./cmd/zarcsummary --replace-fail "/sbin/modinfo" "modinfo"
