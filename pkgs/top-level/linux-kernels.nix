@@ -553,6 +553,10 @@ in
           configFile = "kernel";
           inherit pkgs kernel;
         };
+        zfs_anyraid = callPackage ../os-specific/linux/zfs/anyraid.nix {
+          configFile = "kernel";
+          inherit pkgs kernel;
+        };
 
         can-isotp = callPackage ../os-specific/linux/can-isotp { };
 
