@@ -10,21 +10,21 @@ callPackage ./generic.nix args {
   kernelModuleAttribute = "zfs_anyraid";
 
   kernelMinSupportedMajorMinor = "4.18";
-  kernelMaxSupportedMajorMinor = "6.16";
+  kernelMaxSupportedMajorMinor = "6.17";
 
   # this package should point to a version / git revision compatible with the latest kernel release
   # IMPORTANT: Always use a tagged release candidate or commits from the
   # zfs-<version>-staging branch, because this is tested by the OpenZFS
   # maintainers.
-  version = "2.4.0-rc1";
-  rev = "7c87ca34ecb0449aa0953ac1ea28837d9723803a";
+  version = "2.4.0-rc2";
+  rev = "2377cdcae6052979f1feffbf276d38c9afcd5c1b";
   owner = "KlaraSystems";
 
   tests = {
     inherit (nixosTests.zfs) anyraid;
   };
 
-  hash = "sha256-IyrAt/tLeZAu1vN9d8NR90RmFs7X5P8vWWZnzrW95sY=";
+  hash = "sha256-HAYS3cpzvgiqpyF2C6+ndjh6E5WjOgLntwbxnYx2lMI=";
 
   extraLongDescription = ''
     This is Klara Systems anyraid that has not been merged into mailine ZFS

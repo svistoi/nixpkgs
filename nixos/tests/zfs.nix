@@ -29,8 +29,9 @@ let
         {
           virtualisation = {
             emptyDiskImages = [
-              4096
-              4096
+              65536
+              65536
+              65536
             ];
             useBootLoader = true;
             useEFIBoot = true;
@@ -43,7 +44,10 @@ let
           boot.zfs.package = zfsPackage;
           boot.supportedFilesystems = [ "zfs" ];
 
-          environment.systemPackages = [ pkgs.parted ];
+          environment.systemPackages = [
+            pkgs.parted
+            pkgs.jq
+          ];
 
           # /dev/disk/by-id doesn't get populated in the NixOS test framework
           boot.zfs.devNodes = "/dev/disk/by-uuid";
@@ -225,7 +229,7 @@ in
 
   anyraid = makeZfsTest {
     zfsPackage = pkgs.zfs_anyraid;
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_16;
   };
 
   installerBoot =
