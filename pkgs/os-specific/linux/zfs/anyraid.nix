@@ -17,7 +17,7 @@ callPackage ./generic.nix args {
   # zfs-<version>-staging branch, because this is tested by the OpenZFS
   # maintainers.
   version = "2.4.0-rc2";
-  rev = "2377cdcae6052979f1feffbf276d38c9afcd5c1b";
+  rev = "922c559687f4c68d8e2951e8d9bb6e4c2874af87";
   owner = "KlaraSystems";
 
   tests = {
