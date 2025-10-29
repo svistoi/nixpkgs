@@ -17,14 +17,14 @@ callPackage ./generic.nix args {
   # zfs-<version>-staging branch, because this is tested by the OpenZFS
   # maintainers.
   version = "2.4.0-rc2";
-  rev = "922c559687f4c68d8e2951e8d9bb6e4c2874af87";
+  rev = "bf6a3848686bdf56161cef4c83d49deae0a0d16f";
   owner = "KlaraSystems";
 
   tests = {
     inherit (nixosTests.zfs) anyraid;
   };
 
-  hash = "sha256-HAYS3cpzvgiqpyF2C6+ndjh6E5WjOgLntwbxnYx2lMI=";
+  hash = "sha256-MZs9ZPSpaeKnvcjpRtK4kXa3m64hI+a3IonZbwqEe34=";
 
   extraLongDescription = ''
     This is Klara Systems anyraid that has not been merged into mailine ZFS
