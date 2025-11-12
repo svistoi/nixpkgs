@@ -16,15 +16,16 @@ callPackage ./generic.nix args {
   # IMPORTANT: Always use a tagged release candidate or commits from the
   # zfs-<version>-staging branch, because this is tested by the OpenZFS
   # maintainers.
+  # https://github.com/KlaraSystems/zfs/commits/anyraid/
   version = "2.4.0-rc2";
-  rev = "d735a03507549b0a5d11fba6865075e5c9a27832";
+  rev = "79e47fab92a17bfcf11856a3b2fbf8a19fc3b2d5";
   owner = "KlaraSystems";
 
   tests = {
     inherit (nixosTests.zfs) anyraid;
   };
 
-  hash = "sha256-5oj1aHMJV0yCQERHQuGuWpGc3HSDG3nVUhNV4Em8FzQ=";
+  hash = "sha256-nhUoOLzB+8b2RDjCh8QVTiGulCVK9UDYGCIdNTck7ns=";
 
   extraLongDescription = ''
     This is Klara Systems anyraid that has not been merged into mailine ZFS
