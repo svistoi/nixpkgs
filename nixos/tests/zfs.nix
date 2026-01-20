@@ -231,7 +231,7 @@ in
 
   anyraid = makeZfsTest {
     zfsPackage = pkgs.zfs_anyraid;
-    kernelPackages = pkgs.linuxKernel.packages.linux_6_16;
+    kernelPackages = pkgs.linuxKernel.packages.linux_6_18;
   };
 
   unstableWithSystemdStage1 = makeZfsTest {
