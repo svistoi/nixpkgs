@@ -5,7 +5,7 @@
 }@args:
 
 callPackage ./generic.nix args {
-  extraPatches = [ ./anyraid-dup.patch ];
+  extraPatches = [ ];
 
   # You have to ensure that in `pkgs/top-level/linux-kernels.nix`
   # this attribute is the correct one for this package.
@@ -20,14 +20,14 @@ callPackage ./generic.nix args {
   # maintainers.
   # https://github.com/KlaraSystems/zfs/commits/anyraid/
   version = "2.5.0";
-  rev = "6bceacd9d9be4e1106ce52f53586cec91eef14de";
+  rev = "ef103fa0325011f83e1a19a7cea87c39e7af6897";
   owner = "KlaraSystems";
 
   tests = {
     inherit (nixosTests.zfs) anyraid;
   };
 
-  hash = "sha256-bH7TDyQXJ2QHOJzK6HGMkaVuPfr1PrYecL4vZ5yPxCI=";
+  hash = "sha256-ARi/wSYuEOqMCCpL3Rf+4UxOG3TnScuFdIOfp4s6OGg=";
 
   extraLongDescription = ''
     This is Klara Systems anyraid that has not been merged into mailine ZFS
