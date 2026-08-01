@@ -20,14 +20,14 @@ callPackage ./generic.nix args {
   # maintainers.
   # https://github.com/KlaraSystems/zfs/commits/anyraid/
   version = "2.5.0";
-  rev = "8f90a6b2f579a30085e41acb1042765656ee6a71";
+  rev = "18d064529962a4f45cb0b551f820b32a680ee863";
   owner = "KlaraSystems";
 
   tests = {
     inherit (nixosTests.zfs) anyraid;
   };
 
-  hash = "sha256-O08IHAmZwiJlg3Sm+gphr5eVSYFseD9Z9Zcg/gpBegc=";
+  hash = "sha256-EZDFaDaI5TFLL/cfuBbVN9h9/3yokCvFHFqtX04uhHE=";
 
   extraLongDescription = ''
     This is Klara Systems anyraid that has not been merged into mailine ZFS
